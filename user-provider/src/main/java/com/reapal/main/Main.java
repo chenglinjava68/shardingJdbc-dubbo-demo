@@ -1,4 +1,4 @@
-package main;
+package com.reapal.main;
 
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;

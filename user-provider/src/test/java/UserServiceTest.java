@@ -34,8 +34,8 @@ public class UserServiceTest {
     public void test() {
         User u = new User();
         u.setName("jack-cooper");
-        List<User> users = userService.selectList(new EntityWrapper<>(u));
-        System.out.println("=========================== " + userService.selectList(new EntityWrapper<>(u)));
+        List<User> users = userService.selectList(new EntityWrapper<User>(u));
+        System.out.println("=========================== " + userService.selectList(new EntityWrapper<User>(u)));
 //        Assert.assertNotEquals(0,userService.selectCount(new EntityWrapper<>(u)));
     }
 
