@@ -138,9 +138,10 @@
     <rdb:master-slave-data-source id="rbb_2" master-data-source-ref="master2" slave-data-sources-ref="master2"/>
     <rdb:master-slave-data-source id="rbb_3" master-data-source-ref="master3" slave-data-sources-ref="master3"/>
 
-    <rdb:strategy id="dbStrategy" sharding-columns="id" algorithm-class="com.reapal.config.DbAlgorithm"/>
+    <!-- 通过rdb:strategy和rdb:data-source继续构建分片数据源 -->
+    <rdb:strategy id="dbStrategy" sharding-columns="id" algorithm-expression="rbb_{(id.longValue()/2)%4}"/>
+    <rdb:strategy id="idStrategy" sharding-columns="id" algorithm-expression="user_${id.longValue() % 2}"/>
 
-    <rdb:strategy id="idStrategy" sharding-columns="id" algorithm-class="com.reapal.config.TbAlgorithm"/>
 
     <rdb:data-source id="shardingDataSource">
         <rdb:sharding-rule data-sources="rbb_0,rbb_1,rbb_2,rbb_3">

@@ -23,7 +23,7 @@ public class UserServiceTest {
     @Autowired
     private UserService userService;
 
-    @Test
+//    @Test
     public void testInsert() {
         Sequence sequence = new Sequence();
         User user = new User(sequence.nextId(),"jack-cooper",new Random().nextInt(80));
@@ -31,12 +31,11 @@ public class UserServiceTest {
     }
 
     @Test
-    public void test() {
+    public void testSelect() {
         User u = new User();
         u.setName("jack-cooper");
         List<User> users = userService.selectList(new EntityWrapper<User>(u));
-        System.out.println("=========================== " + userService.selectList(new EntityWrapper<User>(u)));
-//        Assert.assertNotEquals(0,userService.selectCount(new EntityWrapper<>(u)));
+//        System.out.println("=========================== " + userService.selectCount(null));
     }
 
 }
