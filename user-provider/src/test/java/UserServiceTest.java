@@ -13,9 +13,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import java.util.List;
 import java.util.Random;
 
-/**
- * Created by baiyu on 2016/11/14.
- */
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:spring/application.xml","classpath:spring/spring-provider.xml"})
@@ -27,8 +24,8 @@ public class UserServiceTest {
     @Test
     public void testInsert() {
         Sequence sequence = new Sequence();
-        for(int i =1000 ;i < 1005; i++) {
-            User user = new User(new Integer(i).longValue(), "jack-cooper", new Random().nextInt(80));
+        for(int i =0 ;i < 2000; i++) {
+            User user = new User(null, "jack-cooper", new Random().nextInt(80));
             boolean insert = userService.insert(user);
         }
     }

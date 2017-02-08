@@ -14,7 +14,7 @@ public class TbAlgorithm implements SingleKeyTableShardingAlgorithm<Long> {
     @Override
     public String doEqualSharding(Collection<String> availableTargetNames, ShardingValue<Long> shardingValue) {
 
-        Long index = shardingValue.getValue() % 2;
+        Long index = shardingValue.getValue() % 8;
 
         for (String each : availableTargetNames) {
             if (each.endsWith(index + "")) {

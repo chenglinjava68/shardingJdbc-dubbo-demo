@@ -145,7 +145,7 @@
     <rdb:data-source id="shardingDataSource">
         <rdb:sharding-rule data-sources="rbb_0,rbb_1,rbb_2,rbb_3">
             <rdb:table-rules>
-                <rdb:table-rule logic-table="user" actual-tables="user_${0..1}"
+                <rdb:table-rule logic-table="user" actual-tables="user_${0..7}"
                                 database-strategy="dbStrategy" table-strategy="idStrategy"/>
             </rdb:table-rules>
         </rdb:sharding-rule>
