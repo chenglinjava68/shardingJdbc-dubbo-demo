@@ -23,19 +23,21 @@ public class UserServiceTest {
     @Autowired
     private UserService userService;
 
-//    @Test
+    @Test
     public void testInsert() {
         Sequence sequence = new Sequence();
         User user = new User(sequence.nextId(),"jack-cooper",new Random().nextInt(80));
-        Assert.assertTrue(userService.insert(user));
+        boolean insert = userService.insert(user);
+        System.out.println("insert = " + insert);
     }
 
     @Test
-    public void testSelect() {
+    public void test() {
         User u = new User();
         u.setName("jack-cooper");
         List<User> users = userService.selectList(new EntityWrapper<User>(u));
-//        System.out.println("=========================== " + userService.selectCount(null));
+        System.out.println("=========================== " + userService.selectList(new EntityWrapper<User>(u)));
+        System.out.println("******************************= " + userService.selectCount(new EntityWrapper<User>(null)));
     }
 
 }
