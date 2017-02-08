@@ -32,5 +32,6 @@
         <property name="dataSource" ref="shardingDataSource"></property>
     </bean>
 
+    <tx:annotation-driven transaction-manager="transactionManager" />
 
 </beans>
