@@ -12,9 +12,7 @@ public class DbAlgorithm implements SingleKeyDatabaseShardingAlgorithm<Long> {
 
     @Override
     public String doEqualSharding(Collection<String> collection, ShardingValue<Long> shardingValue) {
-        Long id = shardingValue.getValue()%10000;
-        int a = id.intValue();
-        int index = (a/2)% 4;
+        Long index = (shardingValue.getValue()/2) % 4;
 
         for (String each : collection) {
             if (each.endsWith(index + "")) {
