@@ -10,6 +10,8 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -28,6 +30,16 @@ public class UserServiceTest {
             User user = new User(null, "jack-cooper", new Random().nextInt(80));
             boolean insert = userService.insert(user);
         }
+    }
+
+    @Test
+    public void testInsertByBatch() {
+        List<User> list = new ArrayList<User>();
+        for(int i =10 ;i < 500; i++) {
+            User user = new User(new Integer(i).longValue(), "jack-cooper", new Random().nextInt(80));
+            list.add(user);
+        }
+        userService.insertBatch(list);
     }
 
     @Test
