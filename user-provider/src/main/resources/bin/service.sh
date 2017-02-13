@@ -1,7 +1,7 @@
 #!/bin/bash
 #project directory
 
-MAINCLASSNAME="com.reapal.main."
+MAINCLASSNAME="com.reapal.main.Main"
 
 if [ -z "$BASE_DIR" ] ; then
   PRG="$0"
@@ -19,7 +19,7 @@ if [ -z "$BASE_DIR" ] ; then
   BASE_DIR=`dirname "$PRG"`/..
 
   # make it fully qualified
-  BASE_DIR=`cd "$BASE_DIR" && pwd`Main
+  BASE_DIR=`cd "$BASE_DIR" && pwd`
   #echo "Benchtest is at $BASE_DIR"
 fi
 
